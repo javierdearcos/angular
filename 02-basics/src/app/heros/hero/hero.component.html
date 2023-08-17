@@ -7,5 +7,18 @@
   <dt>Description:</dt>
   <dd>{{ getDescription() }}</dd>
 </dl>
-<button class="btn btn-primary mx-2" (click)="changeHero()">Change name</button>
-<button class="btn btn-primary mx-2" (click)="changeAge()">Change age</button>
+<button
+  *ngIf="name === HeroComponentConstants.DEFAULT_NAME"
+  class="btn btn-primary mx-2"
+  (click)="changeHero()"
+>
+  Change name
+</button>
+<button
+  *ngIf="age === HeroComponentConstants.DEFAULT_AGE"
+  class="btn btn-primary mx-2"
+  (click)="changeAge()"
+>
+  Change age
+</button>
+<button class="btn btn-primary mx-2" (click)="resetForm()">Reset form</button>
