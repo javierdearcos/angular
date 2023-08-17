@@ -1,9 +1,11 @@
-<h1>{{ name }}</h1>
+<h1>{{ capitalizedName }}</h1>
 <dl>
   <dt>Name:</dt>
   <dd>{{ fullName }}</dd>
   <dt>Age:</dt>
   <dd>{{ age }}</dd>
+  <dt>Description:</dt>
+  <dd>{{ getDescription() }}</dd>
 </dl>
 <button class="btn btn-primary mx-2">Change name</button>
 <button class="btn btn-primary mx-2">Change age</button>
