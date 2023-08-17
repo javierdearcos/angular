@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -9,7 +9,7 @@ export class CounterComponent {
 
   public counter: number = this.DEFAULT_VALUE;
 
-  resetCounter():void {
+  resetCounter(): void {
     this.counter = this.DEFAULT_VALUE;
   }
 

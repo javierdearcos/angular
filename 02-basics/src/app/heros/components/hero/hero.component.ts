@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./hero.component.css'],
 })
 export class HeroComponent {
-
   public name: string = HeroComponentConstants.DEFAULT_NAME;
   public fullName: string = HeroComponentConstants.DEFAULT_FULL_NAME;
   public age: number = HeroComponentConstants.DEFAULT_AGE;

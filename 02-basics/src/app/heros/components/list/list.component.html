@@ -1,0 +1,26 @@
+<div class="container my-5">
+  <h2>Heros:</h2>
+
+  <ng-template #allHerosAvailable>
+    <p class="text-info">All heros available</p>
+  </ng-template>
+  <p *ngIf="lastElementRemoved; else allHerosAvailable" class="text-info">
+    Last hero removed: <span class="text-danger">{{ lastElementRemoved }}</span>
+  </p>
+
+  <ul class="list-group my-3">
+    <li *ngFor="let name of heroNames" class="list-group-item">{{ name }}</li>
+  </ul>
+
+  <button
+    *ngIf="heroNames.length"
+    class="btn btn-danger mx-2"
+    (click)="removeLastHero()"
+  >
+    Remove hero
+  </button>
+
+  <button class="btn btn-secondary mx-2" (click)="resetHeros()">
+    Reset heros
+  </button>
+</div>

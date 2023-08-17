@@ -24,5 +24,10 @@ export class ListComponent {
 }
 
 class ListComponentConstants {
- public static readonly DEFAULT_HEROS: string[] = ['Spiderman', 'Iron Man', 'Hulk', 'Thor'];
+  public static readonly DEFAULT_HEROS: string[] = [
+    'Spiderman',
+    'Iron Man',
+    'Hulk',
+    'Thor',
+  ];
 }
