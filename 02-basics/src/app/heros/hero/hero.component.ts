@@ -17,4 +17,13 @@ export class HeroComponent {
   getDescription(): string {
     return `${this.name} is ${this.fullName} with age ${this.age}`;
   }
+
+  changeHero(): void {
+    this.name = 'Spiderman';
+    this.fullName = 'Peter Parker';
+  }
+
+  changeAge(): void {
+    this.age = 16;
+  }
 }
