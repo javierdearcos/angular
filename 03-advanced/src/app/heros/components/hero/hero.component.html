@@ -1,0 +1,26 @@
+<div class="container my-5">
+  <h1>{{ capitalizedName }}</h1>
+  <dl>
+    <dt>Name:</dt>
+    <dd>{{ fullName }}</dd>
+    <dt>Age:</dt>
+    <dd>{{ age }}</dd>
+    <dt>Description:</dt>
+    <dd>{{ getDescription() }}</dd>
+  </dl>
+  <button
+    *ngIf="name === HeroComponentConstants.DEFAULT_NAME"
+    class="btn btn-primary mx-2"
+    (click)="changeHero()"
+  >
+    Change name
+  </button>
+  <button
+    *ngIf="age === HeroComponentConstants.DEFAULT_AGE"
+    class="btn btn-primary mx-2"
+    (click)="changeAge()"
+  >
+    Change age
+  </button>
+  <button class="btn btn-primary mx-2" (click)="resetForm()">Reset form</button>
+</div>
