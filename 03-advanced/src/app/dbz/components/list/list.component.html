@@ -1,7 +1,9 @@
 <h2>List</h2>
 <ul class="list-group">
-  <li class="list-group-item">Goku</li>
-  <li class="list-group-item">Vegeta</li>
-  <li class="list-group-item">Freezer</li>
-  <li class="list-group-item">Gohan</li>
+  <li *ngFor="let character of characters" class="list-group-item">
+    {{ character.name }} -
+    <span
+      >Power: <strong>{{ character.power }}</strong></span
+    >
+  </li>
 </ul>
