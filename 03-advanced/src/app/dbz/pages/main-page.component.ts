@@ -25,7 +25,7 @@ export class MainPageComponent {
     this.characters.push(character);
   }
 
-  onDeleteCharacter(character: Character): void {
-    console.log(`Delete ${JSON.stringify(character)}`);
+  onDeleteCharacterIndex(characterIndex: number): void {
+    this.characters.splice(characterIndex, 1);
   }
 }
