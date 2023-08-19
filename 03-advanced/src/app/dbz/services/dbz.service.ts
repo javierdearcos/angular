@@ -37,9 +37,9 @@ export class DbzService {
     });
   }
 
-  deleteCharacter(id: string): void {
+  deleteCharacter(characterToDelete: Character): void {
     this.characters = this.characters.filter(
-      (character) => character.id !== id
+      (character) => character.id !== characterToDelete.id
     );
   }
 }
