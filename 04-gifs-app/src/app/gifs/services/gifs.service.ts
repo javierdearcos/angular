@@ -7,11 +7,16 @@ import { Gif, SearchResponse } from '../interfaces/gifs.interfaces';
 export class GifsService {
   public gifList: Gif[] = [];
 
-  private _tagsHistory: string[] = this.loadTagHistoryFromLocalStorage();
+  private _tagsHistory: string[];
 
   private giphyApiUrl = 'http://api.giphy.com/v1/gifs';
 
-  constructor(private client: HttpClient) {}
+  constructor(private client: HttpClient) {
+    this._tagsHistory = this.loadTagHistoryFromLocalStorage();
+    if (this._tagsHistory.length) {
+      this.searchTag(this._tagsHistory[0]);
+    }
+  }
 
   get tagsHistory(): string[] {
     return [...this._tagsHistory];
