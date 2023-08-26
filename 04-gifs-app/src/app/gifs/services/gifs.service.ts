@@ -7,7 +7,7 @@ import { Gif, SearchResponse } from '../interfaces/gifs.interfaces';
 export class GifsService {
   public gifList: Gif[] = [];
 
-  private _tagsHistory: string[] = [];
+  private _tagsHistory: string[] = this.loadTagHistoryFromLocalStorage();
 
   private giphyApiUrl = 'http://api.giphy.com/v1/gifs';
 
@@ -23,6 +23,7 @@ export class GifsService {
     }
 
     this.addToHistory(tag);
+    this.saveTagHistoryIntoLocalStorage();
 
     const params = new HttpParams()
       .set('api_key', environment.giphyApiKey)
@@ -46,5 +47,13 @@ export class GifsService {
     this._tagsHistory.unshift(newTag);
 
     this._tagsHistory = this._tagsHistory.slice(0, 10);
+  }
+
+  private loadTagHistoryFromLocalStorage(): string[] {
+    return JSON.parse(localStorage.getItem('tagHistory')!) || [];
+  }
+
+  private saveTagHistoryIntoLocalStorage(): void {
+    localStorage.setItem('tagHistory', JSON.stringify(this._tagsHistory));
   }
 }
