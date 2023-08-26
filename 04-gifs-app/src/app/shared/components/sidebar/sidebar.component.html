@@ -5,6 +5,7 @@
     <button
       *ngFor="let tag of tags"
       class="list-group-item list-group-action mb-2"
+      (click)="searchTag(tag)"
     >
       {{ tag | titlecase }}
     </button>
