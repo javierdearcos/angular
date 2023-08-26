@@ -1,10 +1,17 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { Gif, SearchResponse } from '../interfaces/gifs.interfaces';
 
 @Injectable()
 export class GifsService {
+  public gifList: Gif[] = [];
+  
   private _tagsHistory: string[] = [];
 
-  constructor() {}
+  private giphyApiUrl = 'http://api.giphy.com/v1/gifs';
+
+  constructor(private client: HttpClient) {}
 
   get tagsHistory(): string[] {
     return [...this._tagsHistory];
@@ -14,7 +21,20 @@ export class GifsService {
     if (!tag.length) {
       return;
     }
+
     this.addToHistory(tag);
+
+    const params = new HttpParams()
+      .set('api_key', environment.giphyApiKey)
+      .set('limit', '10')
+      .set('q', tag);
+
+    this.client
+      .get<SearchResponse>(`${this.giphyApiUrl}/search`, { params })
+      .subscribe((resp) => {
+        console.log(resp.data);
+        this.gifList = resp.data;
+      });
   }
 
   private addToHistory(tag: string): void {
