@@ -5,11 +5,17 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 import { CardListComponent } from './components/card-list/card-list.component';
 import { GifsService } from './services/gifs.service';
 import { CardComponent } from './components/card/card.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [HomePageComponent, SearchBoxComponent, CardListComponent, CardComponent],
+  declarations: [
+    HomePageComponent,
+    SearchBoxComponent,
+    CardListComponent,
+    CardComponent,
+  ],
   providers: [GifsService],
-  imports: [CommonModule],
+  imports: [CommonModule, SharedModule],
   exports: [HomePageComponent],
 })
 export class GifsModule {}
