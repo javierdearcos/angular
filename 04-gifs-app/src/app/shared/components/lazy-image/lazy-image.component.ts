@@ -9,11 +9,17 @@ export class LazyImageComponent implements OnInit {
   @Input()
   src!: string;
   @Input()
-  alt?: string;
+  alt: string = '';
+
+  isLoaded: boolean = false;
 
   ngOnInit(): void {
     if (!this.src) {
       throw new Error('"src" property is required.');
     }
+  }
+
+  onLoaded(): void {
+    this.isLoaded = true;
   }
 }
