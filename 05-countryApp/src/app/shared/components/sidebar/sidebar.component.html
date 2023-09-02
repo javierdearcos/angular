@@ -3,21 +3,24 @@
 <ul class="list-group">
   <li
     routerLink=""
-    routerLinkActive=""
+    [routerLinkActiveOptions]="{
+      exact: true
+    }"
+    routerLinkActive="active"
     class="list-group-item"
   >
     Home
   </li>
   <li
     routerLink="about"
-    routerLinkActive="about"
+    routerLinkActive="active"
     class="list-group-item"
   >
     About
   </li>
   <li
     routerLink="contact"
-    routerLinkActive="contact"
+    routerLinkActive="active"
     class="list-group-item"
   >
     Contact
