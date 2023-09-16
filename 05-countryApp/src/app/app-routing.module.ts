@@ -10,6 +10,10 @@ const routes: Routes = [
     component: HomePageComponent
   },
   {
+    path: 'countries',
+    loadChildren: () => import('./countries/countries.module').then(module => module.CountriesModule)
+  },
+  {
     path: 'about',
     component: AboutPageComponent
   },
