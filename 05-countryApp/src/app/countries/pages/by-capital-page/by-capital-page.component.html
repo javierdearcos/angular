@@ -2,12 +2,19 @@
 <hr />
 <div class="row">
   <div class="col">
-    <shared-search-box placeholder="Search By Capital"></shared-search-box>
+    <shared-search-box
+      placeholder="Search By Capital"
+      (onValue)="searchByCapital($event)"
+    ></shared-search-box>
   </div>
 </div>
 <div class="row">
   <div class="col">
     <hr />
-    Result table
+    <ol class="list-group">
+      <li class="list-group-item" *ngFor="let country of countries">
+        {{ country.name.common }}
+      </li>
+    </ol>
   </div>
 </div>
