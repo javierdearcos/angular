@@ -1,4 +1,7 @@
-<div *ngIf="countries.length === 0; else table" class="alert alert-warning text-center">
+<div
+  *ngIf="countries.length === 0; else table"
+  class="alert alert-warning text-center"
+>
   No countries to show.
 </div>
 
@@ -23,7 +26,7 @@
         <td>{{ country.capital[0] }}</td>
         <td>{{ country.population | number }}</td>
         <td>
-          <img [src]="country.flags.svg" [alt]="country.flags.alt">
+          <img [src]="country.flags.svg" [alt]="country.flags.alt" />
         </td>
         <td>
           <a href="">More...</a>
