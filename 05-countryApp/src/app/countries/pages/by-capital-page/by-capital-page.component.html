@@ -11,10 +11,6 @@
 <div class="row">
   <div class="col">
     <hr />
-    <ol class="list-group">
-      <li class="list-group-item" *ngFor="let country of countries">
-        {{ country.name.common }}
-      </li>
-    </ol>
+    <countries-country-table [countries]="countries"></countries-country-table>
   </div>
 </div>
