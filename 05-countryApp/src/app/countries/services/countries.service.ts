@@ -10,6 +10,17 @@ export class CountriesService {
 
   private restCountriesApiUrl = 'https://restcountries.com/v3.1';
 
+  searchCountry(country: string): Observable<Country[]> {
+    return this.httpClient
+      .get<Country[]>(`${this.restCountriesApiUrl}/name/${country}`)
+      .pipe(
+        catchError((error) => {
+          console.log(error);
+          return of([]);
+        })
+      );
+  }
+
   searchCountryByCapital(capital: string): Observable<Country[]> {
     return this.httpClient
       .get<Country[]>(`${this.restCountriesApiUrl}/capital/${capital}`)
