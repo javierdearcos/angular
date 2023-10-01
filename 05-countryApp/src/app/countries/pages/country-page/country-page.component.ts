@@ -12,7 +12,7 @@ import { switchMap } from 'rxjs';
 })
 export class CountryPageComponent implements OnInit {
   @Input()
-  public country: Country | null = null;
+  public country?: Country;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -28,6 +28,7 @@ export class CountryPageComponent implements OnInit {
       .subscribe((country) => {
         if (!country) {
           this.router.navigateByUrl('');
+          return;
         }
 
         this.country = country;

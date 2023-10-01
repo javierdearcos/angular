@@ -1,1 +1,11 @@
-<h2>{{ country?.name?.common }}</h2>
+<ng-template #loading>
+  <div class="alert alert-info text-center">Loading...</div>
+</ng-template>
+
+<div *ngIf="country; else loading" class="row">
+  <div class="col-12">
+    <h2>
+      Country: <strong>{{ country.name.common }}</strong>
+    </h2>
+  </div>
+</div>
