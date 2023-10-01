@@ -1,7 +1,1 @@
-<div *ngIf="country === null; else countryDescription" class="alert alert-warning text-center">
-  Country not found.
-</div>
-
-<ng-template #countryDescription>
-  <h2>{{ country?.name?.common }}</h2>
-</ng-template>
+<h2>{{ country?.name?.common }}</h2>
