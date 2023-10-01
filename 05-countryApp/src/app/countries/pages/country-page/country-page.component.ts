@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'countries-country-page',
@@ -10,8 +11,6 @@ import { Country } from '../../interfaces/country';
   styles: [],
 })
 export class CountryPageComponent implements OnInit {
-  @Input()
-  public id: string = '';
   @Input()
   public country: Country | null = null;
 
@@ -21,11 +20,12 @@ export class CountryPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(({ id }) => {
-      this.id = id;
-      this.countriesService
-        .searchCountryByCode(id)
-        .subscribe((country) => (this.country = country));
-    });
+    this.activatedRoute.params
+    .pipe(
+      switchMap(({ id }) => this.countriesService.searchCountryByCode(id))
+    )
+    .subscribe(
+      country => this.country = country
+    );
   }
 }
