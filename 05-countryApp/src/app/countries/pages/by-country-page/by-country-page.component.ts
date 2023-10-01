@@ -15,7 +15,7 @@ export class ByCountryPageComponent {
 
   searchByCountry(country: string): void {
     this.countriesService
-      .searchCountry(country)
+      .searchCountryByName(country)
       .subscribe((countries) => (this.countries = countries));
   }
 }

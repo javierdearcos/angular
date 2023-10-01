@@ -1,1 +1,7 @@
-<p>country-page works!</p>
+<div *ngIf="country === null; else countryDescription" class="alert alert-warning text-center">
+  No country with code {{ id }} was found.
+</div>
+
+<ng-template #countryDescription>
+  <h2>{{ country?.name?.common }}</h2>
+</ng-template>
